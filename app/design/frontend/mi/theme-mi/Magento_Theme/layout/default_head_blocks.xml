@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css rel="stylesheet" type="text/css" src="css/styles.css"/>
+        <css src="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" src_type="url" />
+        <meta name="commission-factory-verification" content="dab8161ce7d942d4a45d0bfbc3c12e76" />
+    </head>
+</page>

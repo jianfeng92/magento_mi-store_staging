@@ -1,0 +1,14 @@
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php $_product = $block->getProduct() ?>
+
+<?php if ($_product->isAvailable()): ?>
+<div class="float-cart">
+	<div class="container">
+		<div class="wrapper">
+			<button class="float-cart-action">Add to cart</button>
+		</div>
+	</div>
+</div>
+
+<?php endif; ?>
+

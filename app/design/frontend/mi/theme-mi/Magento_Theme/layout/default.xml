@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="head.additional">
+			<block class="Magento\Framework\View\Element\Template" template="Magento_Theme::google-tag-manager-script.phtml" name="google-tag-manager-script"  before="-"/>
+		</referenceContainer>
+		<referenceContainer name="after.body.start">
+			<block class="Magento\Framework\View\Element\Template" template="Magento_Theme::google-tag-manager-no-script.phtml" name="google-tag-manager-no-script"  before="-"/>
+		</referenceContainer>
+		<referenceContainer name="header.container">
+			<referenceContainer name="header.panel.wrapper" remove="true" />
+			<referenceContainer name="header-wrapper">
+				<block class="Magento\Framework\View\Element\Template" template="Magento_Theme::common/mi_custom_header.phtml" name="mi.header">
+					<block class="Magento\Framework\View\Element\Template" template="Magento_Theme::mi_search.phtml" name="mi.search" as="minisearch"/>
+					<block class="Magento\Customer\Block\Account\AuthorizationLink" template="Magento_Customer::account.phtml" name="mi-account">
+						<block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+							<arguments>
+								<argument name="label" xsi:type="string" translate="true">My Account</argument>
+								<argument name="sortOrder" xsi:type="number">110</argument>
+							</arguments>
+						</block>
+					</block>
+				</block>
+				<referenceBlock name="logo" remove="true"/>
+			</referenceContainer>
+		</referenceContainer>
+		<referenceContainer name="page.top">
+			<referenceBlock name="store.links" remove="true" />
+			<referenceBlock name="store.settings" remove="true" />
+			<container name="top.container" as="topContainer" label="After Page Header Top" htmlTag="div" htmlClass="hero-banner">
+			</container>
+		</referenceContainer>
+		<referenceContainer name="footer-container">
+			<container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer-container">
+				<block class="Magento\Framework\View\Element\Template" name="mi.footer" template="Magento_Theme::common/mi_custom_footer.phtml">
+					<block class="Magento\Newsletter\Block\Subscribe" name="mi.subscribe" template="Magento_Theme::subscribe.phtml" />
+				</block>
+			</container>
+		</referenceContainer>
+		<move element="minicart" destination="mi.header"/>
+		<referenceBlock name="top.search" remove="true"/>
+		<move element="page.messages" destination="content.top"/>
+	</body>
+</page>

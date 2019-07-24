@@ -1,0 +1,70 @@
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	#ServerName yourdomain.com
+	#ServerAlias subdomain.yourdomain.com
+	
+	#RedirectMatch 301 /(.*) https://*.yourdomain.com/$1
+ 	
+	DocumentRoot /var/www/magento/
+	
+	### Removed Index Browsing	
+	<Directory /var/www/magento>
+    Options FollowSymLinks MultiViews
+    AllowOverride All
+  </Directory>
+
+	 ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+	<Directory "/usr/lib/cgi-bin">
+		AllowOverride None
+		Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+	 ErrorLog ${APACHE_LOG_DIR}/error.log
+
+	### Possible values include: debug, info, notice, warn, error, crit,
+	### alert, emerg.
+	 LogLevel warn
+
+	 CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+   Alias /doc/ "/usr/share/doc/"
+    
+  <Directory "/usr/share/doc/">
+    Options MultiViews FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Deny from all
+    Allow from 127.0.0.0/255.0.0.0 ::1/128
+  </Directory>
+  
+   ### This Section is for Cache Control of Objects: https://developers.google.com/speed/docs/insights/LeverageBrowserCaching
+   
+  <IfModule mod_headers.c>
+  ### 1 YEAR
+  <FilesMatch ".+\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|js)$">
+    Header set Cache-Control "max-age=29030400, must-revalidate"
+  </FilesMatch>
+
+  ### 1 Month
+  <FilesMatch ".+\.(gif|jpeg|jpg|json|png|swf|css)$">
+    Header set Cache-Control "max-age=2628000, must-revalidate"
+  </FilesMatch>
+
+  ### 3 HOUR
+  <FilesMatch ".+\.(txt|xml)$">
+    Header set Cache-Control "max-age=10800, must-revalidate"
+  </FilesMatch>
+
+  ### Do not CACHE
+  <FilesMatch "\.(html|htm|php|cgi|pl)$">
+    Header set Cache-Control "max-age=0, private, no-store, no-cache, must-revalidate"
+  </FilesMatch>
+    
+  </IfModule>
+     
+</VirtualHost>
+
+
+

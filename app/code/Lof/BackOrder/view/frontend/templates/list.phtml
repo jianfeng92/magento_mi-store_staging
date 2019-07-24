@@ -1,0 +1,39 @@
+<?php
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.landofcoder.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder
+ * @package    Lof_PreOrder
+ * @copyright  Copyright (c) 2017 Landofcoder (http://www.landofcoder.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+?>
+<?php
+    $helper = $this->helper('Lof\BackOrder\Helper\Data');
+    $_productCollection = $block->getLoadedProductCollection();
+    $backorderInfo = array();
+    foreach ($_productCollection as $product) {
+        $isBackorder = $helper->isBackorder($product->getId());
+        $productUrl = $product->getProductUrl();
+        $backorderInfo[$productUrl]['backorder'] = $isBackorder;
+    }
+    $data = json_encode(["backorderInfo" => $backorderInfo]);
+?>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "Lof_BackOrder/js/list": <?php echo $data ?>
+        }
+    }
+</script>

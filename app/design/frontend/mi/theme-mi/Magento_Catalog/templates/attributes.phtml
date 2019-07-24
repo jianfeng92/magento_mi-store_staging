@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product additional attributes template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Attributes
+ */
+?>
+<?php
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
+	$_product = $block->getProduct();
+	$_additional = $block->getAdditionalData();
+?>
+<?php if (array_key_exists('specifications', $_additional)): ?>
+    <div class="additional-attributes-wrapper table-wrapper">
+		<div class="specification">
+			<div class="title">
+				<?= $block->escapeHtml(__($_additional['specifications']['label'])); ?>
+			</div>
+			<div class="content">
+				<?= $_helper->productAttribute($_product, $_additional['specifications']['value'], $_additional['specifications']['code']) ?>
+			</div>
+		</div>
+    </div>
+<?php endif;?>

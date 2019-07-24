@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="footer-top">
+	<div class="logo">
+		<img src="<?= $block->getViewFileUrl('images/mi-logo.png');?>">
+	</div>
+	<div class="footer-main-content-one">
+		<div class="subscribe">
+			<h4>Lets stay in touch</h4>
+			<span>Get updates on latest products &amp; more</span>
+			<?= $block->getChildHtml('mi.subscribe') ?>
+		</div>
+		<div class="social-and-paymethods">
+			<h4>Social</h4>
+			<ul class="social-links">
+				<li><a href="https://www.facebook.com/Australia.Xiaomi/"><i class="icon icon-facebook"></i></a></li>
+			</ul>
+			<ul class="pay-methods">
+				<li><img src="<?= $block->getViewFileUrl('images/visa.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/mastercard.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/amex.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/alipay.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/wechat-pay.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/paypal.png');?>"></li>
+				<li><img src="<?= $block->getViewFileUrl('images/zip.png');?>"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="footer-main-content-two">
+		<div class="shop-and-learn">
+			<h4>Shop And Learn</h4>
+			<ul>
+				<li><a href="/customer/account/">Mi Account</a>&nbsp;/&nbsp;<a href="/checkout/cart/">Cart</a></li>
+				<li><a href="/all-products">All Products</a></li>
+			</ul>
+		</div>
+		<div class="support">
+			<h4>Support</h4>
+			<ul>
+				<li><a href="/warranty">Warranty</a></li>
+				<li><a href="/return-policy">Return Policy</a></li>
+				<li><a href="/shopping-faq">Shipping FAQ</a></li>
+				<li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+				<li><a href="/privacy-policy-cookie-restriction-mode">Privacy Policy</a></li>
+			</ul>
+		</div>
+		<div class="about">
+			<h4>About Us</h4>
+			<ul>
+				<!-- <li><a href="/about-us">Xiaomi</a></li> -->
+				<li><a href="#home-news">Mi News</a></li>
+				<li><a href="/contact-us">Contact Us</a></li>
+				<li><a href="/career">Careers</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="copyright">
+	<span>Copyright &copy; 2010-<?php echo date("Y")?> Xiaomi. All Rights Reserved</span>
+</div>

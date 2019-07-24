@@ -1,0 +1,38 @@
+
+<nav>
+	<div class="site-title">
+		<a href="<?= $block->getUrl('') ?>" class="milogo">
+			<img src="<?= $block->getViewFileUrl('images/mi-logo.png');?>" alt="mi logo">
+		</a>
+		<div class="wrapper">
+			<h1 class="title"><a href="<?= $block->getUrl('') ?>">Xiaomi MC Store</a></h1>
+			<p class="welcome">Welcome to my store</p>
+		</div>
+	</div>
+	<ul class="site-nav">
+		<li class="shopping-cart">
+			<?= $block->getChildHtml('minicart')?>
+		</li>
+		<li class="search">
+			<?= $block->getChildHtml('minisearch')?>
+		</li>
+		<li class="site-nav-menu">
+			<div class="hamburger"></div>
+			<div class="hamburger-menu">
+				<div class="navigation">
+					<ul>
+						<li><a href="<?= $block->getUrl('mi-phones')?>">Mi Phones</a></li>
+						<li><a href="<?= $block->getUrl('fitness')?>">Fitness</a></li>
+						<li><a href="<?= $block->getUrl('mi-power-bank')?>">Mi Power Bank</a></li>
+						<li><a href="<?= $block->getUrl('smart-devices')?>">Smart Devices</a></li>
+						<li><a href="<?= $block->getUrl('audio')?>">Audio</a></li>
+						<li><a href="<?= $block->getUrl('lifestyle')?>">Lifestyle</a></li>
+						<li><a href="<?= $block->getUrl('accessories')?>">Accessories</a></li>
+						<li><a href="<?= $block->getUrl('all-products')?>">All Products</a></li>
+						<?= $block->getChildHtml('mi-account')?>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</nav>
